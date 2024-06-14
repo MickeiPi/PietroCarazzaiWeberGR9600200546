@@ -4,12 +4,14 @@ public class Shopping {
     private Endereco endereco;
     private int quantidadeLoja;
     private Loja loja[];
+    private double seguroEletronico[];
 
     public Shopping(String nome, Endereco endereco, int quantidadeLoja){
         this.nome = nome;
         this.endereco = endereco;
         this.quantidadeLoja = quantidadeLoja;
         Loja loja[] = new Loja[quantidadeLoja];
+        double seguroEletronico[] = new Seguro[quantidadeLoja];
     }
 
     public String getNome(){
@@ -42,6 +44,14 @@ public class Shopping {
 
     public void setLojas(Loja[] loja){
         this.loja = loja;
+    }
+
+    public Seguro[] getSeguroEletronicos(){
+        return seguroEletronico;
+    }
+
+    public void setSeguroEletronicos(Seguro[] seguroEletronico){
+        this.seguroEletronico = seguroEletronico;
     }
 
     public String toString(){
@@ -78,7 +88,23 @@ public class Shopping {
     public int quantidadeLojasPorTipo(String tipoLoja){
         for(int i = 0; i < quantidadeLoja; i++){
             if (tipoLoja == "Bijuteria") {
-                System.out.println("Quantidade loja de bijuteria: " + i);
+                System.out.println("Quantidade loja de Bijuteria: " + i);
+                return i;
+            }
+            if (tipoLoja == "Cosmetico") {
+                System.out.println("Quantidade loja de Cosmético: " + i);
+                return i;
+            }
+            if (tipoLoja == "Vestuario") {
+                System.out.println("Quantidade loja de Vestuário: " + i);
+                return i;
+            }
+            if (tipoLoja == "Alimentacao") {
+                System.out.println("Quantidade loja de Alimentação: " + i);
+                return i;
+            }
+            if (tipoLoja == "Informatica") {
+                System.out.println("Quantidade loja de Informática: " + i);
                 return i;
             }
         }
@@ -87,11 +113,14 @@ public class Shopping {
     }
 
     public String lojaSeguroMaisCaro(){
-        for(int i = 0; i < quantidadeLoja; i++){
-            if (loja[i] != null) {
-                
+        x = 0;
+        for(int i = 1; i < quantidadeLoja; i++){
+            if (seguroEletronico[i] > seguroEletronico[i - 1]) {
+                x = seguroEletronico[i];
             }
+            System.out.println("Loja de Informática com o maior seguro: + x");
         }
+    
     }
 
 }
